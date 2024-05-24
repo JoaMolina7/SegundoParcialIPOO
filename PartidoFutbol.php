@@ -49,7 +49,7 @@ class PartidoFutbol extends Partido{
 
     public function __toString(){
         $partido = parent::__toString();
-        return $partido . "Coeficientes: \n" ."Menores: ". $this->coefMenores ."\nJuveniles: ". $this->coefJuveniles ."\nMayores: ". $this->coefMayores . "\n";
+        return $partido . "Coeficientes: \n" ."Menores: ". $this->getCoefMenores() ."\nJuveniles: ". $this->getCoefJuveniles() ."\nMayores: ". $this->getCoefMayores() . "\n";
     }
     
     /**Si se trata de un partido de fútbol, se deben gestionar el valor de 3 coeficientes que serán aplicados según la

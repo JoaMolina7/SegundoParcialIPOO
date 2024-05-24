@@ -5,7 +5,6 @@
 coef  = coeficiente_base_partido  - (coef_penalización*cant_infracciones);
      */
 class PartidoBasquet extends Partido{
-    private $coefBase; 
     private $coefPenalizacion;
     private $cantInfracciones;
 
@@ -13,7 +12,6 @@ class PartidoBasquet extends Partido{
         parent::__construct($idpartido, $fecha,$objEquipo1,$cantGolesE1,$objEquipo2,$cantGolesE2);
         $this->coefPenalizacion = 0.75;
         $this->cantInfracciones = $cantInfracciones;
-        $this->coefBase = 0.5;
         
     }
 
@@ -26,9 +24,6 @@ class PartidoBasquet extends Partido{
         return $this->coefPenalizacion;
     }
 
-    public function getCoefBase(){
-        return $this->coefBase;
-    }
 
     //Setters
     public function setCantInfracciones($newCantInfracciones){
@@ -39,18 +34,15 @@ class PartidoBasquet extends Partido{
         $this->coefPenalizacion = $newCoefPenalizacion;
     }
 
-    public function setCoefBase($newCoefBase){
-        $this->coefBase = $newCoefBase;
-    }
 
     public function __toString(){
         $partido = parent::__toString();
-        return $partido . "Coeficientes: \n" ."Base: ". $this->coefBase ."\nPenalizacion: ". $this->coefPenalizacion ."\nCantInfracciones: ". $this->cantInfracciones . "\n";
+        return $partido . "Coeficientes Penalizacion: ". $this->getCoefPenalizacion() ."\nCantInfracciones: ". $this->getCantInfracciones() . "\n";
     }
 
     public function coeficientePartido(){
         $coeficiente = parent::coeficientePartido();
-        $coeficiente = $coeficiente - ($this->coefPenalizacion * $this->cantInfracciones);
+        $coeficiente = $coeficiente - ($this->getCoefPenalizacion() * $this->getCantInfracciones());
         return $coeficiente;
     }
 

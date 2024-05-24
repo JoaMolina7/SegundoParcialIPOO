@@ -37,8 +37,8 @@ class Torneo{
         return $cadena;
     }
     public function __toString(){
-        $partidos = $this->leerColObj($this->colObjPartidos);
-        return "Torneo: \n" ."Partidos: \n". $partidos ."\nImporte de parte del premio: ". $this->importePartePremio ."\n";
+        $partidos = $this->leerColObj($this->getColObjPartidos());
+        return "Torneo: \n" ."Partidos: \n". $partidos ."\nImporte de parte del premio: ". $this->getImportePartePremio() ."\n";
     }
 
     
